@@ -29,14 +29,17 @@
         </li>
       </ul>
       <section class="tabs-content">
-        <section v-show="activeTab === 'tabs-1'">
+        <section v-if="activeTab === 'tabs-1'">
           <p>タブ1の内容が入ります。</p>
         </section>
-        <section v-show="activeTab === 'tabs-2'">
+        <section v-else-if="activeTab === 'tabs-2'">
           <p>タブ2の内容が入ります。</p>
         </section>
-        <section v-show="activeTab === 'tabs-3'">
+        <section v-else-if="activeTab === 'tabs-3'">
           <p>タブ3の内容が入ります。</p>
+        </section>
+        <section v-else>
+          <p>タブを選択してください。</p>
         </section>
       </section>
     </div>
