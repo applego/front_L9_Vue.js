@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>Vue.js Test</title>
+    <link rel="stylesheet" href="main.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="example">
+      <template v-if="tabs !== null">
+        <ul class="tabs-menu">
+          <li
+            v-for="tab in tabs"
+            v-bind:key="tab.id"
+            v-bind:class="{active: activeTab.id === tab.id}"
+            v-on:click="activeTab = tab"
+          >
+            {{ tab.title }}
+          </li>
+        </ul>
+        <section class="tabs-content">
+          <section>
+            <p>{{ activeTab.content }}</p>
+          </section>
+        </section>
+      </template>
+      <template v-else>
+        <p>データを取得中です。</p>
+      </template>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
