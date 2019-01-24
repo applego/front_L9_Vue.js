@@ -68,3 +68,45 @@ var app8 = new Vue({
     }
   }
 });
+var app9 = new Vue({
+  el: "#example9",
+  data:{
+    height:"",
+    weight:""
+  },
+  methods:{
+    getBmi: function(){
+      if(this.height && this.weight){
+        //センチメートルをメートルにする
+        var meterHeight = this.height / 100;
+        
+        //BMIを計算する
+        var bmi = this.weight / (meterHeight * meterHeight);
+        
+        //小数点以下の桁数を、２桁にして返す
+        return bmi.toFixed(2);
+      }
+      
+      return "";
+    }
+  }
+});
+var app10 = new Vue({
+  el: "#example10",
+  data: {
+    count:0
+  },
+  computed:{
+    date: function(){
+      return new Date().toLocaleString();
+    }
+  },
+  methods:{
+    countUp: function(){
+      this.count += 1;
+    },
+    getDate: function(){
+      return new Date().toLocaleString();
+    }
+  }
+});

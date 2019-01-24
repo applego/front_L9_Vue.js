@@ -65,6 +65,7 @@
       </div>
     </div>
     <div id="example8">
+      算出プロパティ
       <div>
         <p>身長: <input v-model="height" type="text" />cm</p>
         <p>体重: <input v-model="weight" type="text" />kg</p>
@@ -72,6 +73,23 @@
       <div>
         BMI: {{ bmi }}
       </div>
+    </div>
+    <div id="example9">
+      メソッド
+      <div>
+        <p>身長: <input v-model="height" type="text" />cm</p>
+        <p>体重: <input v-model="weight" type="text" />kg</p>
+      </div>
+      <div>
+        BMI: {{ getBmi() }}
+      </div>
+    </div>
+    <div id="example10">
+      <p>
+        <button v-on:click="countUp()">{{ count }} 回</button>
+      </p>
+      <p>現在時刻（メソッド）: {{ getDate() }}</p>
+      <p>現在時刻（算出プロパティ）: {{ date }}</p>
     </div>
     <script src="main.js"></script>
   </body>
