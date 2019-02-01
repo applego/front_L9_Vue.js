@@ -249,33 +249,66 @@
     <!-- ギャラリー -->
     <section id="gallery" class="gallery">
       <div class="gallery__phrase animated">ギャラリー</div>
-      <h2 class="gallery__title animated">Gallery</h2>
-      <div class="image-gallery animated">
-        <div class="image-gallery__item">
-          <a class="popup" href="img/kitten1.jpg"><img class="image-gallery__img" src="img/gallery-thumbnail/kitten1.jpg" width="176" height="176" alt="シェパード"></a>
-        </div>
-        <div class="image-gallery__item">
-          <a class="popup" href="img/kitten2.jpg"><img class="image-gallery__img" src="img/gallery-thumbnail/kitten2.jpg" width="176" height="176" alt="レトリバー"></a>
-        </div>
-        <div class="image-gallery__item">
-          <a class="popup" href="img/kitten3.jpg"><img class="image-gallery__img" src="img/gallery-thumbnail/kitten3.jpg" width="176" height="176" alt="プードル"></a>
-        </div>
-        <div class="image-gallery__item">
-          <a class="popup" href="img/kitten4.jpg"><img class="image-gallery__img" src="img/gallery-thumbnail/kitten4.jpg" width="176" height="176" alt="ポメラニアン"></a>
-        </div>
-        <div class="image-gallery__item">
-          <a class="popup" href="img/puppy1.jpg"><img class="image-gallery__img" src="img/gallery-thumbnail/puppy1.jpg" width="176" height="176" alt="アメリカンショートヘア"></a>
-        </div>
-        <div class="image-gallery__item">
-          <a class="popup" href="img/puppy2.jpg"><img class="image-gallery__img" src="img/gallery-thumbnail/puppy2.jpg" width="176" height="176" alt="スコティッシュフォールド"></a>
-        </div>
-        <div class="image-gallery__item">
-          <a class="popup" href="img/puppy3.jpg"><img class="image-gallery__img" src="img/gallery-thumbnail/puppy3.jpg" width="176" height="176" alt="ベンガル"></a>
-        </div>
-        <div class="image-gallery__item">
-          <a class="popup" href="img/puppy4.jpg"><img class="image-gallery__img" src="img/gallery-thumbnail/puppy4.jpg" width="176" height="176" alt="ロシアンブルー"></a>
-        </div>
-      </div><!--/.image-gallery -->
+        <h2 class="gallery__title animated">Gallery</h2>
+        <a
+          v-for="photo in cats"
+          v-bind:key="photo.id"
+          v-bind:href="photo.pageURL"
+          v-tooltip="photo.text"
+          class="flickr-link"
+          target="_blank"
+        >
+          <img
+            v-bind:src="photo.imageURL"
+            v-bind:alt="photo.text"
+            width="150"
+            height="150"
+          />
+        </a>
+        <a
+          v-for="photo in dogs"
+          v-bind:key="photo.id"
+          v-bind:href="photo.pageURL"
+          v-tooltip="photo.text"
+          class="flickr-link"
+          target="_blank"
+        >
+          <img
+            v-bind:src="photo.imageURL"
+            v-bind:alt="photo.text"
+            width="150"
+            height="150"
+          />
+        </a>
+        
+      <!--<div class="gallery__phrase animated">ギャラリー</div>-->
+      <!--<h2 class="gallery__title animated">Gallery</h2>-->
+      <!--<div class="image-gallery animated">-->
+        <!--<div class="image-gallery__item">-->
+        <!--  <a class="popup" href="img/kitten1.jpg"><img class="image-gallery__img" src="img/gallery-thumbnail/kitten1.jpg" width="176" height="176" alt="シェパード"></a>-->
+        <!--</div>-->
+        <!--<div class="image-gallery__item">-->
+        <!--  <a class="popup" href="img/kitten2.jpg"><img class="image-gallery__img" src="img/gallery-thumbnail/kitten2.jpg" width="176" height="176" alt="レトリバー"></a>-->
+        <!--</div>-->
+        <!--<div class="image-gallery__item">-->
+        <!--  <a class="popup" href="img/kitten3.jpg"><img class="image-gallery__img" src="img/gallery-thumbnail/kitten3.jpg" width="176" height="176" alt="プードル"></a>-->
+        <!--</div>-->
+        <!--<div class="image-gallery__item">-->
+        <!--  <a class="popup" href="img/kitten4.jpg"><img class="image-gallery__img" src="img/gallery-thumbnail/kitten4.jpg" width="176" height="176" alt="ポメラニアン"></a>-->
+        <!--</div>-->
+        <!--<div class="image-gallery__item">-->
+        <!--  <a class="popup" href="img/puppy1.jpg"><img class="image-gallery__img" src="img/gallery-thumbnail/puppy1.jpg" width="176" height="176" alt="アメリカンショートヘア"></a>-->
+        <!--</div>-->
+        <!--<div class="image-gallery__item">-->
+        <!--  <a class="popup" href="img/puppy2.jpg"><img class="image-gallery__img" src="img/gallery-thumbnail/puppy2.jpg" width="176" height="176" alt="スコティッシュフォールド"></a>-->
+        <!--</div>-->
+        <!--<div class="image-gallery__item">-->
+        <!--  <a class="popup" href="img/puppy3.jpg"><img class="image-gallery__img" src="img/gallery-thumbnail/puppy3.jpg" width="176" height="176" alt="ベンガル"></a>-->
+        <!--</div>-->
+        <!--<div class="image-gallery__item">-->
+        <!--  <a class="popup" href="img/puppy4.jpg"><img class="image-gallery__img" src="img/gallery-thumbnail/puppy4.jpg" width="176" height="176" alt="ロシアンブルー"></a>-->
+        <!--</div>-->
+      <!--</div>/.image-gallery -->
     </section><!--/.gallery -->
 
     <!-- フッター -->
@@ -288,6 +321,8 @@
     <script src="js/vendor/jquery.waypoints.min.js"></script>
     <script src="js/vendor/jquery.magnific-popup.min.js"></script>
     <script src="js/vendor/mobile-detect.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/vue-gallery.js"></script>
   </body>
 </html>

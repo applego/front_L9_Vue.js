@@ -215,6 +215,11 @@ body {
   background: url(../img/kittens-bg-large.png), url(../img/kittens-bg-small.png), #fcecf5;
 }
 
+/*追記*/
+.flickr-link{
+  display:inline-block;
+}
+
 .prepare {
   padding-top: 82px;
   padding-bottom: 44px;
