@@ -1,6 +1,41 @@
 // Flickr API key
 const API_KEY ="074312228d4120d45c3a03b5f9e86acf";
 
+var flickrGalleryImages = {
+  props: {
+    photos: {
+      type: Array,
+      requried: true
+    }
+  },
+  template: `
+   <div
+     class="image-gallery__items"
+   >
+     <div
+       v-for="photo in photos"
+       class="image-gallery__item"
+     >
+       <a
+         v-bind:key="photo.id"
+         v-bind:href="photo.pageURL"
+         v-tooltip="photo.text"
+         class="flickr-link"
+         target="_blank"
+       >
+         <img
+           v-bind:src="photo.imageURL"
+           v-bind:alt="photo.text"
+           class="image-gallery__img"
+           width="150"
+           height="150"
+         />
+       </a>
+     </div>
+   </div>
+   `
+};
+
 Vue.directive("tooltip",{
   bind: function(el, binding){
     $(el).tooltip({
@@ -16,6 +51,9 @@ new Vue({
     // photos: []
     cats: [],
     dogs: []
+  },
+  components:{
+    "flickr-gallery-images":flickrGalleryImages
   },
   methods:{
     getFlickrImageURL: function(photo, size){
